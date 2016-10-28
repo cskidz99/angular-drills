@@ -1,6 +1,22 @@
-<html>
-	<body>
-		Something
+<html ng-app="myApp">
+	<body ng-controller="mainCtrl">
+		<input placeholder="Name:" ng-model="thisFilter.name"/>
+		<input placeholder="Email:" ng-model="thisFilter.email"/>
+		<select ng-model="thisFilter.dateEmployed">
+			<option value="">--</option>
+			<option value="2014">2014</option>
+			<option value="2015">2015</option>
+			<option value="2016">2016</option>
+		</select>
+
+		<input placeholder="Phone:" ng-model="thisFilter.phone"/>
+
+		<div ng-repeat="person in employees | filter: thisFilter">
+			<h1>{{person.name}}</h1>
+			<h2>{{person.email}}</h2>
+			<h3>{{person.dateEmployed}}</h3>
+			<h4>{{person.phone}}</h4>
+		</div>
 				<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
 		<script src="app.js"></script>
 		<script src="controller.js"></script>
